@@ -14,3 +14,42 @@ For a no-setup broker, feel free to use the one at [https://mosquitto.org](https
 
 Create a docker file with a working Django setup. What do you need to do to make it production-ready?
 
+
+##### Project Dependencies
+
+- linux os (with bash shell)
+- Python 3.x
+- virtualenv
+- [test.mosquitto.org](test.mosquitto.org)
+
+
+### Steps to run :
+
+1. Clone the project
+	
+	`git clone https://github.com/KetanSingh11/mqtt-empello-assignment.git`
+
+2. Open *2 tabs* in linux terminal, and navigate to the project directory.
+3. In Tab #1 - run 
+
+	`virtualenv venv`
+	
+	`source venv/bin/activate`
+
+	`pip install -r requirements.txt`
+
+3. In Tab #1 (_subscriber_) - run the command (the subscriber will start and wait for messages):
+	
+	`python subscriber.py`
+
+4. In Tab #2 (_publisher_) - run the below command in order:
+	
+	`source venv/bin/activate`
+
+	`chmod +x run.sh`
+	
+	`./run.sh`
+
+5. Messages will start showing up in the Tab #1.
+
+> By default the _publisher_ sends 5 messages and then shutsdown. To change this, update the value of `send_msg_count` in the `publisher.py` file to a integer number.
